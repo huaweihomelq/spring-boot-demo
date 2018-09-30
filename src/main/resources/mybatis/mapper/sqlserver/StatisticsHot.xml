@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--命名空间和接口保持一致-->
+<mapper namespace="com.yixin.mapper.sqlserver.StatisticsHotMapper">
+    <!--    <resultMap id="getNewsList" type="com.yixin.model.NewsModel">
+            <id property="id" column="id"></id>
+            <result property="typename" column="typename"></result>
+            <result property="name" column="name"></result>
+        </resultMap>-->
+
+    <select id="getStatisticsHotList" resultType="com.yixin.entity.StatisticsHotEntity">
+        SELECT sh.ID, sh.Name, sh.Spell, sh.CreateTime
+        FROM StatisticsHot AS sh WITH (NOLOCK) WHERE sh.TypeName = 'mb' ORDER BY sh.ID
+    </select>
+</mapper>
